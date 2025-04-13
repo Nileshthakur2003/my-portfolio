@@ -9,7 +9,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-16 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
-        <h1 className="text-3xl sm:text-4xl font-bold mt-6">Hi, I'm Nilesh</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mt-6">Hi, I am Nilesh</h1>
         <p className="text-lg sm:text-xl text-gray-600 mt-4">
           A passionate [Your Role] who loves crafting amazing digital experiences.
         </p>
