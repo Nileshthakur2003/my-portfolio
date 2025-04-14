@@ -1,5 +1,5 @@
 import Navbar from "@/components/NavBar"; // Import Navbar component
-import { Mail, Globe, Link, Linkedin } from "lucide-react"; // Import icons
+import { Mail, Link, Linkedin } from "lucide-react"; // Import icons
 
 export default function Contact() {
   return (
