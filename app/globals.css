@@ -120,3 +120,58 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(15deg);  }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg);  }
+}
+
+.shake {
+  animation: shake 1s ease-in-out;
+}
+
+/* Popup styling */
+.popup {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Display popup on hover */
+.group:hover .popup {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Popup structure styling */
+.popup h4 {
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.popup p {
+  font-size: 0.875rem;
+}
+
+.popup footer {
+  font-size: 0.75rem;
+  color: #555;
+  text-align: right;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out both;
+}

@@ -1,32 +1,36 @@
 import Navbar from "@/components/NavBar"; // Import Navbar component
-import { Mail, Globe, Link } from "lucide-react"; // Import icons
+import { Mail, Globe, Link, Linkedin } from "lucide-react"; // Import icons
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 flex flex-col">
+    <div className="h-screen bg-gradient-to-r from-gray-100 to-blue-50 text-gray-800 flex flex-col">
       {/* Navbar */}
       <Navbar />
 
-
       {/* Contact Section */}
-      <section className="flex flex-col items-center justify-center py-16 px-8">
-        <div className="max-w-2xl w-full">
-          <h2 className="text-3xl font-bold text-center mb-6">Get in Touch</h2>
-           {/* Direct Contact Options */}
-              <div className="mt-8 flex justify-center space-x-6 mb-5">
+      <section className="flex flex-col items-center justify-center flex-grow px-4">
+        <div className="w-full max-w-xl bg-white p-6 rounded-md shadow-md">
+          <h2 className="text-3xl font-bold text-center text-blue-800 mb-4">
+            Let's Connect
+          </h2>
+
+          {/* Direct Contact Options */}
+          <div className="flex justify-center space-x-6 mb-4">
             <a
               href="mailto:yourname@example.com"
-              className="flex items-center space-x-2 text-blue-500 hover:text-blue-600 transition"
+              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition"
             >
               <Mail className="w-5 h-5" />
-              <span>Email</span>
+              <span className="text-sm font-medium">Email</span>
             </a>
             <a
-              href="https://yourwebsite.com"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition"
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition"
             >
-              <Globe className="w-5 h-5" />
-              <span>Website</span>
+              <Linkedin className="w-5 h-5" />
+              <span className="text-sm font-medium">LinkedIn</span>
             </a>
             <a
               href="https://github.com/yourprofile"
@@ -35,46 +39,43 @@ export default function Contact() {
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition"
             >
               <Link className="w-5 h-5" />
-              <span>GitHub</span>
+              <span className="text-sm font-medium">GitHub</span>
             </a>
           </div>
-          <hr></hr>
-          <p className="text-center text-lg text-gray-600 mb-8">
-            Feel free to send me a message below
+          <hr className="border-t border-gray-300 mb-4" />
+
+          {/* Introduction Message */}
+          <p className="text-center text-sm text-gray-600 mb-4">
+            I'd love to hear from you! Send me a quick message below.
           </p>
 
           {/* Contact Form */}
-          <form
-            className="flex flex-col space-y-4"
-        
-          >
+          <form className="flex flex-col space-y-3">
             <input
               type="text"
               placeholder="Your Name"
-              className="px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
             <textarea
               placeholder="Your Message"
-              className="px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              rows={5}
+              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              rows={4}
               required
             ></textarea>
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md hover:scale-105 transition transform text-sm"
             >
               Send Message
             </button>
           </form>
-
-         
         </div>
       </section>
     </div>

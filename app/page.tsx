@@ -11,12 +11,12 @@ export default function Portfolio() {
       <section className="flex flex-col items-center justify-center text-center py-16 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
         <h1 className="text-3xl sm:text-4xl font-bold mt-6">Hi, I am Nilesh</h1>
         <p className="text-lg sm:text-xl text-gray-600 mt-4">
-          A passionate [Your Role] who loves crafting amazing digital experiences.
+          A Software Developer who loves crafting amazing digital experiences.
         </p>
         <div className="flex flex-col sm:flex-row items-center sm:space-x-4 mt-6 space-y-4 sm:space-y-0">
           {/* Contact Me Button */}
           <a
-            href="#contact"
+            href="/contact"
             className="flex items-center space-x-2 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
           >
             <User className="w-5 h-5" />
@@ -25,7 +25,7 @@ export default function Portfolio() {
 
           {/* My Projects Button */}
           <a
-            href="#projects"
+            href="/projects"
             className="flex items-center space-x-2 px-6 py-3 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition"
           >
             <Folder className="w-5 h-5" />
@@ -43,10 +43,24 @@ export default function Portfolio() {
           </p>
           <a
             href="mailto:yourname@example.com"
-            className="flex items-center space-x-2 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+            className="items-center space-x-2 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition inline-block m-2"
           >
             <User className="w-5 h-5" />
-            <span>Email Me</span>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="mailto:nnt.kec@gmail.com"
+            className="items-center space-x-2 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition inline-block m-2"
+          >
+            <User className="w-5 h-5" />
+            <span>Twitter</span>
+          </a>
+          <a
+            href="mailto:yourname@example.com"
+            className="items-center space-x-2 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition inline-block m-2"
+          >
+            <User className="w-5 h-5" />
+            <span>Email me</span>
           </a>
         </div>
       </section>
