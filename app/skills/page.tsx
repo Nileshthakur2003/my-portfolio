@@ -115,7 +115,7 @@ export default function Skills() {
         <h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
-            <Card key={index} className="border-4 shadow-md transition-transform transform hover:scale-105 animate-dark-border-gradient ">
+            <Card key={index} className="border-4 shadow-md transition-transform transform hover:scale-105 ">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">{skill.category}</CardTitle>
               </CardHeader>
