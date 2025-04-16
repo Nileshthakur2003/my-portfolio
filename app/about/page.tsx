@@ -87,8 +87,8 @@ export default function About() {
                     </p>
                     <p className="text-gray-600 text-lg">
                      <strong> Courses :</strong>
-                    {edu.courses.map((subject)=>(
-                      <i> {subject.toString()},</i>
+                     {edu.courses.map((subject, index) => (
+                      <i key={index}>{subject.toString()},</i>
                     ))}
                     </p>
                   </CardContent>
