@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, FileText, Award, Italic } from "lucide-react"; // Import icons from lucide-react
+import { GraduationCap, FileText, Award } from "lucide-react"; // Import icons from lucide-react
 import Navbar from "@/components/NavBar"; // Import Navbar component
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -67,7 +67,7 @@ export default function About() {
               Education
             </h3>
             <div className="space-y-4">
-              {education.map((edu, index) => (
+              {education.map((edu,index) => (
                 <Card
                   key={index}
                   className="border border-gray-200 shadow-sm animate-slide-up"
@@ -87,8 +87,8 @@ export default function About() {
                     </p>
                     <p className="text-gray-600 text-lg">
                      <strong> Courses :</strong>
-                    {edu.courses.map((subject,index)=>(
-                      <i> {subject},</i>
+                    {edu.courses.map((subject)=>(
+                      <i> {subject.toString()},</i>
                     ))}
                     </p>
                   </CardContent>
