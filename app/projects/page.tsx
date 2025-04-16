@@ -6,40 +6,58 @@ import { Github, Eye } from "lucide-react";
 
 const projects = [
   {
-    title: "Project 1",
-    description: "A brief description of your awesome project.",
-    link: "https://github.com/yourprofile/project1",
+    title: "AI Telegram Bot",
+    description: "A python project implementing Cohere and Telegram APIs.",
+    link: "https://github.com/Nileshthakur2003/ai-bot",
     showcase: "https://yourwebsite.com/project1",
-    technologies: ["React", "Next.js"],
+    technologies: ["Python", "Flask", "Cohere", "Telegram Bot"],
   },
   {
-    title: "Project 2",
-    description: "Another amazing project you're proud of.",
-    link: "https://github.com/yourprofile/project2",
+    title: "Research Publication Collector",
+    description: "A research publication aggregator based on DLPB.",
+    link: "https://github.com/Nileshthakur2003/pubs-summary",
     showcase: "https://yourwebsite.com/project2",
     technologies: ["JavaScript", "Node.js"],
   },
   {
-    title: "Project 3",
-    description: "An innovative project showcasing your skills.",
-    link: "https://github.com/yourprofile/project3",
-    showcase: "https://yourwebsite.com/project3",
-    technologies: ["Python", "Flask"],
+    title: "Online Auction Platform",
+    description: "An Auction Platform to auction items in real-time.",
+    link: "https://github.com/Nileshthakur2003/auction-platform-final",
+    showcase: "javascript:alert('Its not hosted yet')",
+    technologies: ["NodeJs", "React", "Bootstrap", "MongoDB"],
   },
 ];
 
 export default function Projects() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedTech, setSelectedTech] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setTimeout(() => setIsLoaded(true), 200); // Delay the animation for smoothness
+    setTimeout(() => setIsLoaded(true), 200);
   }, []);
+
+  // Get unique techs for dropdown
+  const allTechnologies = Array.from(
+    new Set(projects.flatMap((project) => project.technologies))
+  );
+
+  // Filter logic
+  const filteredProjects = projects.filter((project) => {
+    const matchesTech =
+      selectedTech === "" || project.technologies.includes(selectedTech);
+    const matchesSearch =
+      searchQuery === "" ||
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTech && matchesSearch;
+  });
 
   return (
     <div
       className={`h-screen bg-gradient-to-b from-gray-100 to-blue-100 text-gray-800 flex flex-col transition-opacity duration-700 ${
         isLoaded ? "opacity-100" : "opacity-0"
-      }`}
+      } `}
     >
       <Navbar />
 
@@ -53,40 +71,39 @@ export default function Projects() {
           <input
             type="text"
             placeholder="Search projects..."
-            value={""}
-            onChange={() => {}}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
           />
 
           <select
-            value=""
-            onChange={() => {}}
+            value={selectedTech}
+            onChange={(e) => setSelectedTech(e.target.value)}
             className="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
           >
             <option value="">All Technologies</option>
-            {/* Insert technology options dynamically */}
+            {allTechnologies.map((tech, index) => (
+              <option key={index} value={tech}>
+                {tech}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="rounded-lg border border-gray-200 shadow-md bg-white text-center p-4 animate-slide-up"
-              style={{
-                animationDelay: `${index * 0.1}s`, // Stagger the animation for each card
-              }}
+              className="rounded-lg border border-gray-200 shadow-md bg-white text-center p-4 animate-slide-up animate-border-gradient"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Placeholder for Image */}
               <div className="w-full h-24 bg-gray-300 rounded-md mb-4 flex items-center justify-center text-gray-600">
                 Placeholder
               </div>
 
-              {/* Project Info */}
               <h3 className="text-lg font-bold mb-2">{project.title}</h3>
               <p className="text-gray-600 text-sm mb-3">{project.description}</p>
 
-              {/* Technologies */}
               <div className="flex flex-wrap gap-2 justify-center mb-3">
                 {project.technologies.map((tech, index) => (
                   <span
@@ -98,7 +115,6 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Links */}
               <div className="flex justify-center gap-4">
                 <a
                   href={project.link}
@@ -109,7 +125,8 @@ export default function Projects() {
                   <Github size={14} />
                   GitHub
                 </a>
-                <a
+                { project.showcase ?
+                (<a
                   href={project.showcase}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -117,7 +134,10 @@ export default function Projects() {
                 >
                   <Eye size={14} />
                   Showcase
-                </a>
+                </a>):(
+                  <></>
+                )
+                }
               </div>
             </div>
           ))}

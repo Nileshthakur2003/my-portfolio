@@ -77,6 +77,32 @@ export default function Skills() {
 
   useEffect(() => {
     setTimeout(() => setIsLoaded(true), 200); // Delay to trigger the animation
+
+    const interval = setInterval(() => {
+      // Get all skill icons
+      const icons = document.querySelectorAll(".skills-icon");
+      if (icons.length > 0) {
+        // Pick a random icon
+        const randomIndex = Math.floor(Math.random() * icons.length);
+        const randomIcon = icons[randomIndex];
+
+        // Add 'shake' class
+        randomIcon.classList.add("shake");
+
+        // Remove 'shake' class after 1 second
+        setTimeout(() => {
+          randomIcon.classList.remove("shake");
+        }, 1000);
+      }
+    }, 3000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+
+  useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 200); // Delay to trigger the animation
   }, []);
 
   return (
@@ -89,7 +115,7 @@ export default function Skills() {
         <h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
-            <Card key={index} className="border border-gray-200 shadow-md transition-transform transform hover:scale-105">
+            <Card key={index} className="border-4 shadow-md transition-transform transform hover:scale-105 animate-dark-border-gradient ">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">{skill.category}</CardTitle>
               </CardHeader>

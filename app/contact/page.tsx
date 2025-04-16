@@ -1,81 +1,59 @@
-import Navbar from "@/components/NavBar"; // Import Navbar component
-import { Mail, Globe, Link, Linkedin } from "lucide-react"; // Import icons
+"use client";
+
+import Navbar from "@/components/NavBar";
+import {
+  Mail,
+  Link,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Facebook,
+} from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="h-screen bg-gradient-to-r from-gray-100 to-blue-50 text-gray-800 flex flex-col">
-      {/* Navbar */}
+    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-blue-50 text-gray-800 flex flex-col">
       <Navbar />
 
-      {/* Contact Section */}
-      <section className="flex flex-col items-center justify-center flex-grow px-4">
-        <div className="w-full max-w-xl bg-white p-6 rounded-md shadow-md">
-          <h2 className="text-3xl font-bold text-center text-blue-800 mb-4">
+      <section className="flex-grow flex items-center justify-center px-4 py-10">
+        <div className="w-full max-w-4xl bg-white p-8 rounded-2xl shadow-xl border-4 border-transparent animate-border-gradient">
+          <h2 className="text-4xl font-bold text-center text-blue-900 mb-10">
             Let's Connect
           </h2>
 
-          {/* Direct Contact Options */}
-          <div className="flex justify-center space-x-6 mb-4">
+          {/* Grid layout for contact items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+            {/* Email */}
             <a
-              href="mailto:yourname@example.com"
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition"
+              href="mailto:nileshthakurbgp@gmail.com"
+              className="flex flex-col items-center p-4 bg-blue-100 hover:bg-blue-200 rounded-xl transition-transform hover:scale-105 text-blue-800"
             >
-              <Mail className="w-5 h-5" />
-              <span className="text-sm font-medium">Email</span>
+              <Mail className="w-8 h-8 mb-2" />
+              <span className="font-medium text-sm">Email</span>
             </a>
+
+            {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/nnthakur1297/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition"
+              className="flex flex-col items-center p-4 bg-blue-100 hover:bg-blue-200 rounded-xl transition-transform hover:scale-105 text-blue-800"
             >
-              <Linkedin className="w-5 h-5" />
-              <span className="text-sm font-medium">LinkedIn</span>
+              <Linkedin className="w-8 h-8 mb-2" />
+              <span className="font-medium text-sm">LinkedIn</span>
             </a>
+
+            {/* GitHub */}
             <a
-              href="https://github.com/yourprofile"
+              href="https://github.com/Nileshthakur2003"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition"
+              className="flex flex-col items-center p-4 bg-gray-100 hover:bg-gray-200 rounded-xl transition-transform hover:scale-105 text-gray-800"
             >
-              <Link className="w-5 h-5" />
-              <span className="text-sm font-medium">GitHub</span>
+              <Link className="w-8 h-8 mb-2" />
+              <span className="font-medium text-sm">GitHub</span>
             </a>
           </div>
-          <hr className="border-t border-gray-300 mb-4" />
-
-          {/* Introduction Message */}
-          <p className="text-center text-sm text-gray-600 mb-4">
-            I'd love to hear from you! Send me a quick message below.
-          </p>
-
-          {/* Contact Form */}
-          <form className="flex flex-col space-y-3">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-              required
-            />
-            <textarea
-              placeholder="Your Message"
-              className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-              rows={4}
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md hover:scale-105 transition transform text-sm"
-            >
-              Send Message
-            </button>
-          </form>
         </div>
       </section>
     </div>

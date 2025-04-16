@@ -175,3 +175,135 @@
 .animate-slide-up {
   animation: slide-up 0.8s ease-out both;
 }
+
+
+
+@keyframes borderGradient {
+  0% {
+    border-color: #e5e046; /* Indigo */
+  }
+  25% {
+    border-color: #3ceb25; /* Blue */
+  }
+  50% {
+    border-color: #d81dbc; /* Deep Blue */
+  }
+  75% {
+    border-color: #9333ea; /* Violet */
+  }
+  100% {
+    border-color: #dae546; /* Back to Indigo */
+  }
+}
+
+
+.animate-border-gradient {
+  animation: borderGradient 3s linear infinite;
+}
+
+@keyframes darkBorderGradient {
+  0% {
+    border-color: #0d0d0d; /* Very dark gray */
+  }
+  25% {
+    border-color: #1a1a2e; /* Dark blue-gray */
+  }
+  50% {
+    border-color: #252525; /* Medium dark gray */
+  }
+  75% {
+    border-color: #121212; /* Jet black */
+  }
+  100% {
+    border-color: #0d0d0d; /* Back to very dark gray */
+  }
+}
+
+.animate-dark-border-gradient {
+  animation: darkBorderGradient 3s linear infinite;
+}
+
+
+@keyframes backgroundGradient {
+  0% {
+    background-color: #e5e046; /* Indigo */
+  }
+  25% {
+    background-color: #3ceb25; /* Blue */
+  }
+  50% {
+    background-color: #d81dbc; /* Deep Blue */
+  }
+  75% {
+    background-color: #9333ea; /* Violet */
+  }
+  100% {
+    background-color: #dae546; /* Back to Indigo */
+  }
+}
+
+.animate-background-gradient {
+  animation: backgroundGradient 3s linear infinite;
+}
+
+/* Keyframes for the gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated gradient background */
+.animated-bg {
+  background: linear-gradient(270deg, #a29bfe, #00cec9, #81ecec, #fab1a0);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+/* @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+.animate-gradient {
+  background: linear-gradient(270deg, #a29bfe, #00cec9, #81ecec, #fab1a0); /* Customize colors here */
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+
+
+@keyframes darkBackgroundGradient {
+  0% {
+    background-color: #0d0d0d; /* Very dark gray */
+  }
+  25% {
+    background-color: #1a1a2e; /* Dark blue-gray */
+  }
+  50% {
+    background-color: #252525; /* Medium dark gray */
+  }
+  75% {
+    background-color: #121212; /* Jet black */
+  }
+  100% {
+    background-color: #0d0d0d; /* Back to very dark gray */
+  }
+}
+
+.animate-dark-background {
+  animation: darkBackgroundGradient 5s ease infinite; /* Adjust animation speed */
+}
