@@ -1,14 +1,5 @@
-"use client";
-
-import Navbar from "@/components/NavBar";
-import {
-  Mail,
-  Link,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Facebook,
-} from "lucide-react";
+import Navbar from "@/components/NavBar"; // Import Navbar component
+import { Mail, Globe, Link, Linkedin } from "lucide-react"; // Import icons
 
 export default function Contact() {
   return (
