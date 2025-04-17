@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/NavBar"; // Import NavBar component
-import { User, Folder } from "lucide-react"; // Import icons
+import { User, Folder, FileText } from "lucide-react"; // Import icons
 
 export default function Portfolio() {
   return (
@@ -42,7 +42,7 @@ export default function Portfolio() {
             href="/resume.pdf"
             className="flex items-center space-x-2 px-6 py-3 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition"
           >
-            <Folder className="w-5 h-5" />
+            <FileText className="w-5 h-5" />
             <span>My Resume</span>
           </a>
         </div>

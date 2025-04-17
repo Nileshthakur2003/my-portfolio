@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, FileText, Award } from "lucide-react";
+import { GraduationCap, FileText, Award, Briefcase } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
