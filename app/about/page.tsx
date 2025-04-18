@@ -1,10 +1,21 @@
 "use client";
 
-import { GraduationCap, FileText, Award, Briefcase } from "lucide-react";
+import { GraduationCap, FileText, Award } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+// Framer Motion Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1 },
+  }),
+};
 
 const education = [
   {
@@ -16,10 +27,10 @@ const education = [
 ];
 
 const certifications = [
-  { title: "React Developer Certification", platform: "Coursera" },
-  { title: "Full-Stack Web Development", platform: "Udemy" },
-  { title: "Data Structures and Algorithms", platform: "CodeChef" },
-  { title: "Docker and Kubernetes Essentials", platform: "Pluralsight" },
+  { title: "Data Analytics", platform: "HP" },
+  { title: "Advanced CPP", platform: "Spoken Tutorial (IIT B)" },
+  { title: "C Language", platform: "Spoken Tutorial (IIT B)" },
+  { title: "Python", platform: "Kaggle" },
 ];
 
 export default function About() {
@@ -31,22 +42,29 @@ export default function About() {
         {/* Resume Button */}
         <div className="flex justify-center mb-6">
           <Link href="/resume.pdf" target="_blank">
-            <Button className="bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center">
-              <FileText className="mr-2" />
-              Resume
-            </Button>
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <Button className="bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center">
+                <FileText className="mr-2" />
+                Resume
+              </Button>
+            </motion.div>
           </Link>
         </div>
 
         {/* About & Education Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* About Me Section */}
-          <div>
-            <h3 className="text-lg font-semibold text-blue-800 mb-2 animate-slide-up flex items-center">
+          {/* About Me */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+          >
+            <h3 className="text-lg font-semibold text-blue-800 mb-2 flex items-center">
               <GraduationCap className="mr-2" />
               About Me
             </h3>
-            <Card className="border border-gray-200 shadow-sm animate-slide-up">
+            <Card className="border border-gray-200 shadow-sm">
               <CardContent className="pt-4">
                 <p className="text-gray-700 text-base text-justify">
                   I am a passionate software developer with expertise in building
@@ -57,74 +75,99 @@ export default function About() {
                 </p>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
 
-          {/* Education Section */}
-          <div>
-            <h3 className="text-lg font-semibold text-blue-800 mb-2 animate-slide-up flex items-center">
+          {/* Education */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            <h3 className="text-lg font-semibold text-blue-800 mb-2 flex items-center">
               <GraduationCap className="mr-2" />
               Education
             </h3>
             <div className="space-y-4">
               {education.map((edu, index) => (
-                <Card
+                <motion.div
                   key={index}
-                  className="border border-gray-200 shadow-sm animate-slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  variants={fadeUp}
+                  initial="hidden"
+                  animate="visible"
+                  custom={index + 2}
                 >
-                  <CardHeader>
-                    <CardTitle className="text-lg font-semibold">
-                      {edu.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-base">
-                      <strong>Institution:</strong> {edu.institution}
-                    </p>
-                    <p className="text-gray-600 text-base">
-                      <strong>Duration:</strong> {edu.duration}
-                    </p>
-                    <p className="text-gray-600 text-base">
-                      <strong>Courses:</strong>{" "}
-                      {edu.courses.map((subject, i) => (
-                        <i key={i}>{subject}{i !== edu.courses.length - 1 ? ", " : ""}</i>
-                      ))}
-                    </p>
-                  </CardContent>
-                </Card>
+                  <Card className="border border-gray-200 shadow-sm">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-semibold">
+                        {edu.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 text-base">
+                        <strong>Institution:</strong> {edu.institution}
+                      </p>
+                      <p className="text-gray-600 text-base">
+                        <strong>Duration:</strong> {edu.duration}
+                      </p>
+                      <p className="text-gray-600 text-base">
+                        <strong>Courses:</strong>{" "}
+                        {edu.courses.map((subject, i) => (
+                          <i key={i}>
+                            {subject}
+                            {i !== edu.courses.length - 1 ? ", " : ""}
+                          </i>
+                        ))}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Certifications Section */}
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-blue-800 mb-2 animate-slide-up flex items-center">
+        <motion.div
+          className="mt-12"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={5}
+        >
+          <h3 className="text-lg font-semibold text-blue-800 mb-4 flex items-center">
             <Award className="mr-2" />
             Certifications & Courses
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          {/* Scrollable Row */}
+          <div className="flex gap-4 overflow-x-auto pb-2">
             {certifications.map((cert, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="border border-gray-200 shadow-sm animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="flex-shrink-0 w-60 h-60"
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={index + 6}
               >
-                <CardHeader>
-                  <CardTitle className="text-sm font-semibold flex items-center">
-                    <Award className="mr-1" />
-                    {cert.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm">
-                    <strong>Platform:</strong> {cert.platform}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="h-full flex flex-col justify-between border border-gray-200 shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-sm font-semibold flex items-center">
+                      <Award className="mr-1" />
+                      {cert.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="mb-4">
+                    <p className="text-gray-600 text-sm">
+                      <strong>Platform:</strong> {cert.platform}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

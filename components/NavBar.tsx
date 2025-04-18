@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"; // Import shadcn Button
 import { User, Star, Folder, Mail } from "lucide-react"; // Import icons
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu toggle state
@@ -15,7 +16,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full bg-white shadow-md sticky top-0 z-10">
+    <header 
+    className="w-full bg-white shadow-md sticky top-0 z-10"
+    
+    >
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <h1
