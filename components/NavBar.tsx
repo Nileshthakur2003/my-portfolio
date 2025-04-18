@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"; // Import shadcn Button
 import { User, Star, Folder, Mail } from "lucide-react"; // Import icons
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu toggle state
